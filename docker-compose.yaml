@@ -1,0 +1,24 @@
+#Docker assignment for Udemy course
+
+version: '2' #docker-compose version
+
+services: #specify the services, for this compose file I have Drupal and Postgres
+  drupal:
+    image: drupal:8.8.2
+    ports:
+      - "8080:80"
+    volumes: #For volumes, reference the official documentation on dockerhub
+      - drupal-modules:/var/www/html/modules
+      - drupal-profiles:/var/www/html/profiles       
+      - drupal-sites:/var/www/html/sites      
+      - drupal-themes:/var/www/html/themes
+  postgres:
+    image: postgres:12.1
+    environment:
+      - POSTGRES_PASSWORD=mypasswd
+
+volumes: #Specify volume names 
+  drupal-modules:
+  drupal-profiles:
+  drupal-sites:
+  drupal-themes:
