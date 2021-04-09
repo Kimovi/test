@@ -1,0 +1,41 @@
+#Dockerfile
+FROM drupal:8.2
+
+RUN apt-get update && apt-get install -y git \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /var/www/html/themes
+
+RUN git clone --branch #add git repo address here \
+    && chown -R www-data:www-data bootstrap
+
+WORKDIR /var/www/html
+
+
+#Compose file
+version: '2' 
+
+services: #specify the services, for this compose file I have Drupal and Postgres
+  drupal:
+    image: custom-drupal
+    build: .
+    ports:
+      - "8080:80"
+    volumes: #For volumes, reference the official documentation on dockerhub
+      - drupal-modules:/var/www/html/modules
+      - drupal-profiles:/var/www/html/profiles       
+      - drupal-sites:/var/www/html/sites      
+      - drupal-themes:/var/www/html/themes
+  postgres:
+    image: postgres:12.1
+    environment:
+      - POSTGRES_PASSWORD=mypasswd
+    volumes: 
+        - drupal-data:/var/lib/postgresql/data
+
+volumes: #Specify volume names 
+  drupal-data:
+  drupal-modules:
+  drupal-profiles:
+  drupal-sites:
+  drupal-themes:
