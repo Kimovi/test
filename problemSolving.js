@@ -22,6 +22,8 @@ Algorithms
 - BFS + DFS (Searching)
 - Recursion 
 
+Course mindmap
+https://coggle.it/diagram/W5u8QkZs6r4sZM3J/t/master-the-interview
 Technical interview mindmap 
 https://coggle.it/diagram/W5E5tqYlrXvFJPsq/t/master-the-interview-click-here-for-course-link/c25f98c73a03f5b1107cd0e2f4bce29c9d78e31655e55cb0b785d56f0036c9d1
 
@@ -108,3 +110,7 @@ can get a time optimization to the process. In programming, you often times can 
 more space to get faster time
 And always remember: Communicate your thought process as much as possible. Don’t worry about
 finishing it fast. Every part of the interview matters.
+
+
+How to: Work at Google — Example Coding/Engineering Interview
+https://www.youtube.com/watch?v=XKu_SEDAykw
